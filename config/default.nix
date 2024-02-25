@@ -2,6 +2,7 @@
 {
   # Import all your configuration modules here
   imports = [
+    ./welcome.nix
     ./bufferline.nix
     ./git.nix
     ./lsp.nix
