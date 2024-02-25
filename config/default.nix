@@ -9,7 +9,7 @@
     ./keymaps.nix
     ./telescope.nix
     ./treesitter.nix
-
+    ./harpoon.nix
   ];
   colorschemes.rose-pine = {
     enable = true;
@@ -33,6 +33,10 @@
   plugins.comment-nvim.enable = true; # use gc<Motion> to comment lines
   plugins.indent-blankline.enable = true; # show indent lines
 
+
+  extraPlugins = with pkgs.vimPlugins; [
+    vim-sleuth
+  ];
 
   # Yank on Highlight
   autoGroups = {

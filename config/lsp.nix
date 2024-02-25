@@ -14,6 +14,8 @@
         enable = true;
         filetypes = [ "sbt" "scala" ];
       };
+      nixd.enable = true;
+      pyright.enable = true;
     };
     keymaps = {
       lspBuf = {

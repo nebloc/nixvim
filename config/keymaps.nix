@@ -5,7 +5,7 @@
       "<leader>c" = "[C]ode";
       "<leader>d" = "[D]ocument";
       "<leader>g" = "[G]it";
-      "<leader>h" = "Git [H]unk";
+      "<leader>h" = "[H]arpoon";
       "<leader>r" = "[R]ename";
       "<leader>s" = "[S]earch";
       "<leader>t" = "[T]oggle";
@@ -74,13 +74,13 @@
     lua = true;
     options.desc = "[S]earch [S]elect Telescope";
   } 
-  {
-    key = "<leader>gf";
-    mode = "n";
-    action = "require('telescope.builtin').git_files";
-    lua = true;
-    options.desc = "Search [G]it [F]iles";
-  }
+  # { ### ONLY git key map... why would I want this and then git commands on hunk...
+  #   key = "<leader>gf";
+  #   mode = "n";
+  #   action = "require('telescope.builtin').git_files";
+  #   lua = true;
+  #   options.desc = "Search [G]it [F]iles";
+  # }
   {
     key = "<leader>sf";
     mode = "n";
