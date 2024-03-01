@@ -10,6 +10,11 @@
       "<leader>s" = "[S]earch";
       "<leader>t" = "[T]oggle";
       "<leader>w" = "[W]orkspace";
+      ###########HARPOON##########
+      "<leader>hl" = "[H]arpoon [L]ist";
+      "<leader>hm" = "[H]arpoon [M]ark";
+      "<leader>hn" = "[H]arpoon [N]ext";
+      "<leader>hp" = "[H]arpoon [P]revious";
     };
   };
   keymaps = [

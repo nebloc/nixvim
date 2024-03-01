@@ -3,8 +3,8 @@
     enable = true;
     enableTelescope = true;
     keymaps = {
-	addFile = "<leader>ha";
-	toggleQuickMenu = "<leader>hm";
+	addFile = "<leader>hm";
+	toggleQuickMenu = "<leader>hl";
 	navNext = "<leader>hn";
 	navPrev = "<leader>hp";
     };
