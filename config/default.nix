@@ -16,11 +16,11 @@
     style = "moon";
   };
 
+  clipboard.register = "unnamedplus";
 
   globals = {
     mapleader = " ";
     undofile = true;
-    clipboard = "unnamedplus";
   };
   
   localOptions = {
@@ -33,6 +33,7 @@
   plugins.comment-nvim.enable = true; # use gc<Motion> to comment lines
   plugins.indent-blankline.enable = true; # show indent lines
 
+  plugins.surround.enable = true;
 
   extraPlugins = with pkgs.vimPlugins; [
     vim-sleuth
