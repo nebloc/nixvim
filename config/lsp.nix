@@ -10,10 +10,10 @@
         installRustc = false;
         installCargo = false;
       };
-      metals = {
-        enable = true;
-        filetypes = [ "sbt" "scala" ];
-      };
+      # metals = {
+      #   enable = true;
+      #   filetypes = [ "sbt" "scala" ];
+      # };
       nixd.enable = true;
       pyright.enable = true;
     };
