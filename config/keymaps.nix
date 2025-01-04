@@ -170,11 +170,18 @@
     options.desc = "Go to next diagnostic";
   }
   {
-    key = "<leader>q";
+    key = "<leader>Q";
     mode = "n";
     action = "vim.diagnostic.setloclist";
     lua = true;
     options.desc = "Open diagnostic list";
+  }
+  {
+    key = "<leader>q";
+    mode = "n";
+    action = "vim.diagnostic.open_float";
+    lua = true;
+    options.desc = "Open float for diagnostic";
   }
 
   ##############################
