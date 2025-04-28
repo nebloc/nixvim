@@ -1,7 +1,7 @@
 {
   plugins.treesitter = {
     enable = true;
-    ensureInstalled = [ "c" "cpp" "go" "lua" "python" "rust" "tsx" "javascript" "typescript" "vimdoc" "vim" "bash" "scala" "nix" "rust" ];
+    ensureInstalled = [ "c" "cpp" "go" "lua" "python" "rust" "tsx" "javascript" "json" "typescript" "vimdoc" "vim" "bash" "scala" "nix" "rust" ];
     indent = true;
     incrementalSelection = {
       enable = true;
