@@ -1,15 +1,17 @@
 {
   plugins.treesitter = {
     enable = true;
-    ensureInstalled = [ "c" "cpp" "go" "lua" "python" "rust" "tsx" "javascript" "json" "typescript" "vimdoc" "vim" "bash" "scala" "nix" "rust" ];
-    indent = true;
-    incrementalSelection = {
-      enable = true;
-      keymaps = {
-        initSelection = "<c-space>";
-        nodeIncremental = "<c-space>";
-        scopeIncremental = "<c-s>";
-        nodeDecremental = "<M-space>";
+    settings = {
+      ensureInstalled = [ "c" "cpp" "go" "lua" "python" "rust" "tsx" "javascript" "json" "typescript" "vimdoc" "vim" "bash" "scala" "nix" "rust" ];
+      indent.enable = true;
+      incremental_selection = {
+        enable = true;
+        keymaps = {
+          init_selection = "<c-space>";
+          node_incremental = "<c-space>";
+          scope_incremental = "<c-s>";
+          node_decremental = "<M-space>";
+        };
       };
     };
   };

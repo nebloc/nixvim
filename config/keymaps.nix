@@ -11,6 +11,7 @@
       "<leader>t" = "[T]oggle";
       "<leader>w" = "[W]orkspace";
       ###########HARPOON##########
+    
       "<leader>hl" = "[H]arpoon [L]ist";
       "<leader>hm" = "[H]arpoon [M]ark";
       "<leader>hn" = "[H]arpoon [N]ext";
@@ -263,5 +264,10 @@
     options.silent = true;
     options.noremap = true;
   }
+  ### HARPOON ###
+  { mode = "n"; key = "<leader>hm"; action = "function() require'harpoon':list():add() end"; }
+  { mode = "n"; key = "<leader>hl"; action = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end"; }
+  # navNext = "<leader>hn";
+  # navPrev = "<leader>hp";
   ];
 }
