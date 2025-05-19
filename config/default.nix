@@ -13,12 +13,11 @@
     ./metals.nix
   ];
 
-
   config = {
     globals = {
       mapleader = " ";
     };
-  
+
     plugins.dap = {
       enable = true;
     };
@@ -35,7 +34,7 @@
       undofile = true;
       breakindent = true;
       mouse = "a";
-      hlsearch = false; # Don't leave searches highlighted 
+      hlsearch = false; # Don't leave searches highlighted
       showmode = false;
       ignorecase = true;
       smartcase = true;
@@ -45,11 +44,13 @@
     autoCmd = [
       {
         event = "TextYankPost";
-        callback = { __raw = ''
-        function()
-          vim.highlight.on_yank()
-        end
-        '';};
+        callback = {
+          __raw = ''
+            function()
+              vim.highlight.on_yank()
+            end
+          '';
+        };
         group = "YankHighlight";
         pattern = "*";
       }

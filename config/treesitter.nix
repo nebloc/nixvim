@@ -2,7 +2,24 @@
   plugins.treesitter = {
     enable = true;
     settings = {
-      ensureInstalled = [ "c" "cpp" "go" "lua" "python" "rust" "tsx" "javascript" "json" "typescript" "vimdoc" "vim" "bash" "scala" "nix" "rust" ];
+      ensureInstalled = [
+        "c"
+        "cpp"
+        "go"
+        "lua"
+        "python"
+        "rust"
+        "tsx"
+        "javascript"
+        "json"
+        "typescript"
+        "vimdoc"
+        "vim"
+        "bash"
+        "scala"
+        "nix"
+        "rust"
+      ];
       indent.enable = true;
       incremental_selection = {
         enable = true;
@@ -21,21 +38,37 @@
       enable = true;
       lookahead = true;
       keymaps = {
-      "aa" = { query = "@parameter.outer"; };
-      "ia" = { query = "@parameter.inner"; };
-      "af" = { query = "@function.outer"; };
-      "if" = { query = "@function.inner"; };
-      "ac" = { query = "@class.outer"; };
-      "ic" = { query = "@class.inner"; };
+        "aa" = {
+          query = "@parameter.outer";
+        };
+        "ia" = {
+          query = "@parameter.inner";
+        };
+        "af" = {
+          query = "@function.outer";
+        };
+        "if" = {
+          query = "@function.inner";
+        };
+        "ac" = {
+          query = "@class.outer";
+        };
+        "ic" = {
+          query = "@class.inner";
+        };
       };
     };
     swap = {
-      enable = true; 
+      enable = true;
       swapNext = {
-      "<leader>a" = { query = "@parameter.inner"; };
+        "<leader>a" = {
+          query = "@parameter.inner";
+        };
       };
       swapPrevious = {
-      "<leader>A" = { query = "@parameter.inner"; };
+        "<leader>A" = {
+          query = "@parameter.inner";
+        };
       };
     };
   };
