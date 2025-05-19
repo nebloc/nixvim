@@ -3,6 +3,8 @@
     enable = true;
   };
 
+  plugins.web-devicons.enable = true; # Dev icons for alpha and telescope
+
   extraConfigLuaPre = /*lua*/''
   -- Telescope live_grep in git root
   -- Function to find the git root directory based on the current buffer's path

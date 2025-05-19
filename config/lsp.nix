@@ -1,19 +1,16 @@
 {
   plugins.lsp = {
     enable = true;
+    inlayHints = true;
     servers = {
       gopls.enable = true;
-      tsserver.enable = true;
-      lua-ls.enable = true;
-      rust-analyzer = {
+      ts_ls.enable = true;
+      lua_ls.enable = true;
+      rust_analyzer = {
         enable = true;
         installRustc = false;
         installCargo = false;
       };
-      # metals = {
-      #   enable = true;
-      #   filetypes = [ "sbt" "scala" ];
-      # };
       nixd.enable = true;
       pyright.enable = true;
     };
@@ -28,12 +25,12 @@
     };
   };
 
-  # plugins.cmp-nvim-lsp.enable = true;
   # plugins.cmp-path.enable = true;
   # plugins.luasnip.enable = true;
   # plugins.cmp_luasnip.enable = true;
 
   plugins.cmp = {
+    enable = true;
     autoEnableSources = true;
     settings = {
       sources = [
@@ -53,10 +50,6 @@
         "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
       };
     }; 
-  };
-
-  plugins.nvim-cmp = {
-    enable = true;
   };
 
   plugins.fidget.enable = true;

@@ -1,9 +1,11 @@
 {
   plugins.lualine = {
     enable = true;
-    componentSeparators.left = "|";
-    componentSeparators.right = "|";
-    sectionSeparators.left = "";
-    sectionSeparators.right = "";
+    settings.options = {
+      component_separators.left = "|";
+      component_separators.right = "|";
+      section_separators.left = "";
+      section_separators.right = "";
+    };
   };
 }

@@ -1,21 +1,15 @@
 {
   plugins.which-key = {
     enable = true;
-    registrations = {
-      "<leader>c" = "[C]ode";
-      "<leader>d" = "[D]ocument";
-      "<leader>g" = "[G]it";
-      "<leader>h" = "[H]arpoon";
-      "<leader>r" = "[R]ename";
-      "<leader>s" = "[S]earch";
-      "<leader>t" = "[T]oggle";
-      "<leader>w" = "[W]orkspace";
-      ###########HARPOON##########
-    
-      "<leader>hl" = "[H]arpoon [L]ist";
-      "<leader>hm" = "[H]arpoon [M]ark";
-      "<leader>hn" = "[H]arpoon [N]ext";
-      "<leader>hp" = "[H]arpoon [P]revious";
+    settings={
+      spec = [
+        {__unkeyed-1 = "<leader>g"; desc = "[G]it"; }
+        {__unkeyed-1 = "<leader>h"; desc = "[H]arpoon"; }
+        {__unkeyed-1 = "<leader>r"; desc = "[R]ename"; }
+        {__unkeyed-1 = "<leader>s"; desc = "[S]earch"; }
+        {__unkeyed-1 = "<leader>t"; desc = "[T]oggle"; }
+        {__unkeyed-1 = "<leader>w"; desc = "[W]orkspace"; }
+      ];
     };
   };
   keymaps = [
@@ -80,13 +74,6 @@
     lua = true;
     options.desc = "[S]earch [S]elect Telescope";
   } 
-  # { ### ONLY git key map... why would I want this and then git commands on hunk...
-  #   key = "<leader>gf";
-  #   mode = "n";
-  #   action = "require('telescope.builtin').git_files";
-  #   lua = true;
-  #   options.desc = "Search [G]it [F]iles";
-  # }
   {
     key = "<leader>sf";
     mode = "n";
@@ -265,9 +252,70 @@
     options.noremap = true;
   }
   ### HARPOON ###
-  { mode = "n"; key = "<leader>hm"; action = "function() require'harpoon':list():add() end"; }
-  { mode = "n"; key = "<leader>hl"; action = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end"; }
-  # navNext = "<leader>hn";
-  # navPrev = "<leader>hp";
+  {
+    mode = "n";
+    key = "<leader>hm";
+    action.__raw = /*lua*/''
+    function()
+      require'harpoon':list():add()
+    end
+    '';
+    options.desc = "[H]arpoon [M]ark";
+  }
+  {
+    mode = "n";
+    key = "<leader>hl";
+    action.__raw = /*lua*/''
+    function()
+      local conf = require("telescope.config").values
+      local file_paths = {}
+      for _, item in ipairs(require'harpoon':list().items) do
+          table.insert(file_paths, item.value)
+      end
+
+      require("telescope.pickers").new({}, {
+          prompt_title = "Harpoon",
+          finder = require("telescope.finders").new_table({
+              results = file_paths,
+          }),
+          previewer = conf.file_previewer({}),
+          sorter = conf.generic_sorter({}),
+      }):find()
+    end
+    '';
+    options.desc = "[H]arpoon [L]ist";
+  }
+  {
+    mode = "n";
+    key = "<leader>hn";
+    action.__raw = /*lua*/''
+    function()
+      require'harpoon':list():next()
+    end
+    '';
+    options.desc = "[H]arpoon [N]ext";
+  }
+  {
+    mode = "n";
+    key = "<leader>hp";
+    action.__raw = /*lua*/''
+    function()
+      require'harpoon':list():prev()
+    end
+    '';
+    options.desc = "[H]arpoon [P]rev";
+  }
+
+  ### Toggle Hint ###
+  {
+    key = "<leader>th";
+    mode = "n";
+    action.__raw = /*lua*/''
+    function()
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {bufnr = vim.api.nvim_get_current_buf()})
+    end
+    '';
+    options.desc = "[T]oggle [H]ints";
+  }
   ];
 }

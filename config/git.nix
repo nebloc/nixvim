@@ -2,7 +2,7 @@
   plugins.gitsigns = {
     enable = true;
     settings ={
-      currentLineBlame = true;
+      current_line_blame = true;
       signcolumn = true;
       signs = {
         add.text = "+";
@@ -11,7 +11,10 @@
         topdelete.text = "‾";
         changedelete.text = "~";
       };
-      onAttach.function = ''
+      watch_gitdir = {
+        follow_files = true;
+      };
+      on_attach = /*lua*/''
       function(bufnr)
         local gs = package.loaded.gitsigns
 

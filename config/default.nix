@@ -25,12 +25,12 @@
 
     colorschemes.rose-pine = {
       enable = true;
-      style = "moon";
+      settings.dark_variant = "moon";
     };
 
     clipboard.register = "unnamedplus";
 
-    options = {
+    opts = {
       relativenumber = true;
       undofile = true;
       breakindent = true;
@@ -66,9 +66,9 @@
       vim-sleuth
     ];
 
-    plugins.comment-nvim.enable = true; # use gc<Motion> to comment lines
+    plugins.comment.enable = true; # use gc<Motion> to comment lines
     plugins.indent-blankline.enable = true; # show indent lines
 
-    plugins.surround.enable = true;
+    plugins.vim-surround.enable = true;
   };
 }
