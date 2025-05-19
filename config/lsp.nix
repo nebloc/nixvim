@@ -11,11 +11,19 @@
         installRustc = false;
         installCargo = false;
       };
-      nixd.enable = true;
+      nixd = {
+        enable = true;
+        extraOptions = {
+          formatting = {
+            command = "nixfmt";
+          };
+      	};
+      };
       pyright.enable = true;
     };
     keymaps = {
       lspBuf = {
+        "<leader>ff" = "format";
         K = "hover";
         gD = "references";
         gd = "definition";
@@ -25,13 +33,13 @@
     };
   };
 
-  # plugins.cmp-path.enable = true;
-  # plugins.luasnip.enable = true;
-  # plugins.cmp_luasnip.enable = true;
+  plugins.cmp-path.enable = true;
+  plugins.luasnip.enable = true;
+  plugins.cmp_luasnip.enable = true;
 
   plugins.cmp = {
     enable = true;
-    autoEnableSources = true;
+    autoEnableSources = false;
     settings = {
       sources = [
         { name = "nvim_lsp"; }
