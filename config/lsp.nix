@@ -11,6 +11,7 @@
         installRustc = false;
         installCargo = false;
       };
+      clangd.enable = true;
       nixd = {
         enable = true;
         extraOptions = {
