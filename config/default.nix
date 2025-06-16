@@ -11,6 +11,7 @@
     ./treesitter.nix
     ./harpoon.nix
     ./metals.nix
+    ./dap.nix
   ];
 
   config = {
@@ -18,9 +19,6 @@
       mapleader = " ";
     };
 
-    plugins.dap = {
-      enable = true;
-    };
 
     colorschemes.rose-pine = {
       enable = true;
