@@ -27,6 +27,10 @@
           __unkeyed-1 = "<leader>w";
           desc = "[W]orkspace";
         }
+        {
+          __unkeyed-1 = "<leader>d";
+          desc = "[D]AP Debug";
+        }
       ];
     };
   };
@@ -158,6 +162,13 @@
       key = "gd";
       mode = "n";
       action = "require('telescope.builtin').lsp_definitions";
+      lua = true;
+      options.desc = "[G]oto [D]efinition";
+    }
+    {
+      key = "gD";
+      mode = "n";
+      action = "require('telescope.builtin').lsp_implementations";
       lua = true;
       options.desc = "[G]oto [D]efinition";
     }
@@ -306,7 +317,19 @@
             }):find()
           end
         '';
-      options.desc = "[H]arpoon [L]ist";
+      options.desc = "[H]arpoon [L]ist (Telescope)";
+    }
+    {
+      mode = "n";
+      key = "<leader>hL";
+      action.__raw = # lua
+        ''
+          function()
+            local harpoon = require('harpoon')
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+          end
+        '';
+      options.desc = "[H]arpoon [L]ist (Standard)";
     }
     {
       mode = "n";
@@ -342,6 +365,80 @@
           end
         '';
       options.desc = "[T]oggle [H]ints";
+    }
+    ### QUICK FIX MENU###
+    {
+      key = "<M-q>";
+      mode = "n";
+      action = "vim.diagnostic.open_float";
+      options.desc = "Show diagnostic float";
+    }
+    {
+      key = "<M-j>";
+      mode = "n";
+      action = "<cmd>cnext<CR>";
+      options.desc = "Next quick fix option";
+    }
+    {
+      key = "<M-k>";
+      mode = "n";
+      action = "<cmd>cprev<CR>";
+      options.desc = "Previous quick fix option";
+    }
+    ### DAP ###
+    {
+      key = "<leader>db";
+      mode = "n";
+      action = "require('dap').toggle_breakpoint";
+      options.desc = "Toggle Breakpoint";
+      lua = true;
+    }
+    {
+      key = "<leader>dc";
+      mode = "n";
+      action = "require('dap').continue";
+      options.desc = "Continue";
+      lua = true;
+    }
+    {
+      key = "<leader>dn";
+      mode = "n";
+      action = "require('dap').step_over";
+      options.desc = "Step Over";
+      lua = true;
+    }
+    {
+      key = "<leader>dp";
+      mode = "n";
+      action = "require('dap').step_back";
+      options.desc = "Step Back";
+      lua = true;
+    }
+    {
+      key = "<leader>di";
+      mode = "n";
+      action = "require('dap').step_into";
+      options.desc = "Step Into";
+      lua = true;
+    }
+    {
+      key = "<leader>do";
+      mode = "n";
+      action = "require('dap').step_out";
+      options.desc = "Step Back";
+      lua = true;
+    }
+    {
+      key = "<leader>d?";
+      mode = "n";
+      action = # lua
+        ''
+          function()
+            require('dapui').eval(nil, {enter = true})
+          end
+        '';
+      options.desc = "Evaluate Under Cursor";
+      lua = true;
     }
   ];
 }

@@ -1,8 +1,10 @@
+{ lib, pkgs, ... }:
 {
   plugins.lsp = {
     enable = true;
     inlayHints = true;
     servers = {
+      arduino_language_server.enable = true;
       gopls.enable = true;
       ts_ls.enable = true;
       lua_ls.enable = true;
@@ -12,6 +14,7 @@
         installCargo = false;
       };
       clangd.enable = true;
+      zls.enable = true;
       nixd = {
         enable = true;
         extraOptions = {
@@ -37,6 +40,22 @@
   plugins.cmp-path.enable = true;
   plugins.luasnip.enable = true;
   plugins.cmp_luasnip.enable = true;
+
+  extraConfigLua = ''
+    local lspconfig, util = require("lspconfig"), require("lspconfig.util")
+
+    lspconfig.arduino_language_server.setup{
+      cmd = {
+        "arduino-language-server",
+        "-cli",        "arduino-cli",
+        "-cli-config", vim.fn.expand("~/.config/arduino-cli.yaml"),
+        "-fqbn",       "esp32:esp32:esp32",   -- change to your board
+        "-clangd",     "clangd"
+      },
+      filetypes = { "arduino", "ino" },
+      root_dir  = util.root_pattern(".git", "*.ino"),
+    }
+  '';
 
   plugins.cmp = {
     enable = true;

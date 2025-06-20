@@ -19,6 +19,7 @@
         "scala"
         "nix"
         "rust"
+        "zig"
       ];
       indent.enable = true;
       incremental_selection = {
