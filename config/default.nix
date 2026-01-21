@@ -12,6 +12,7 @@
     ./harpoon.nix
     ./metals.nix
     ./dap.nix
+    ./copilot.nix
   ];
 
   config = {
@@ -20,7 +21,6 @@
     globals = {
       mapleader = " ";
     };
-
 
     colorschemes.rose-pine = {
       enable = true;
@@ -39,6 +39,7 @@
       ignorecase = true;
       smartcase = true;
       signcolumn = "yes";
+      completeopt = "menu,menuone,noinsert";
     };
 
     autoCmd = [

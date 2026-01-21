@@ -8,6 +8,7 @@
       gopls.enable = true;
       ts_ls.enable = true;
       lua_ls.enable = true;
+      elixirls.enable = true;
       rust_analyzer = {
         enable = true;
         installRustc = false;
@@ -79,6 +80,7 @@
       };
     };
   };
+
 
   plugins.fidget.enable = true;
 }

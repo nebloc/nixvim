@@ -1,26 +1,29 @@
+{pkgs, ...}:
 {
   plugins.treesitter = {
     enable = true;
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        c
+        cpp
+        go
+        lua
+        python
+        elixir
+        rust
+        tsx
+        javascript
+        json
+        typescript
+        vimdoc
+        vim
+        bash
+        scala
+        nix
+        rust
+        zig
+    ];
     settings = {
-      ensureInstalled = [
-        "c"
-        "cpp"
-        "go"
-        "lua"
-        "python"
-        "rust"
-        "tsx"
-        "javascript"
-        "json"
-        "typescript"
-        "vimdoc"
-        "vim"
-        "bash"
-        "scala"
-        "nix"
-        "rust"
-        "zig"
-      ];
+      highlight.enable = true;
       indent.enable = true;
       incremental_selection = {
         enable = true;
