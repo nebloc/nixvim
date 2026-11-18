@@ -16,6 +16,10 @@
   ];
 
   config = {
+    extraPackages = with pkgs; [
+      asdf-vm # Needed for elixirls
+    ];
+
     viAlias = true;
     vimAlias = true;
     globals = {

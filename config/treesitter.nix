@@ -21,6 +21,8 @@
         nix
         rust
         zig
+        svelte
+        haskell
     ];
     settings = {
       highlight.enable = true;

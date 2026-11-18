@@ -31,6 +31,10 @@
           __unkeyed-1 = "<leader>d";
           desc = "[D]AP Debug";
         }
+        {
+          __unkeyed-1 = "<leader>c";
+          desc = "[C]opilot Chat";
+        }
       ];
     };
   };
@@ -366,24 +370,30 @@
         '';
       options.desc = "[T]oggle [H]ints";
     }
+    ### COPILOT ###
+    {
+      key = "<C-l>";
+      mode = "i";
+      action = "copilot#Accept('')";
+      options = {
+        desc = "Accept Copilot suggestion";
+        expr = true;
+        replace_keycodes = false;
+        silent = true;
+      };
+    }
+    {
+      key = "<C-]>";
+      mode = "i";
+      action = "<Plug>(copilot-dismiss)";
+      options.desc = "Dismiss Copilot suggestion";
+    }
     ### QUICK FIX MENU###
     {
       key = "<M-q>";
       mode = "n";
       action = "vim.diagnostic.open_float";
       options.desc = "Show diagnostic float";
-    }
-    {
-      key = "<M-j>";
-      mode = "n";
-      action = "<cmd>cnext<CR>";
-      options.desc = "Next quick fix option";
-    }
-    {
-      key = "<M-k>";
-      mode = "n";
-      action = "<cmd>cprev<CR>";
-      options.desc = "Previous quick fix option";
     }
     ### DAP ###
     {
@@ -439,6 +449,17 @@
         '';
       options.desc = "Evaluate Under Cursor";
       lua = true;
+    }
+    {
+      key = "<leader>ct";
+      action = "<cmd>CopilotChatToggle<cr>";
+      options.desc = "Toggle Copilot Chat";
+    }
+    {
+      key = "<leader>cc";
+      mode = "n";
+      action = ":CopilotChat ";
+      options.desc = "[C]opilot [C]hat Command";
     }
   ];
 }
